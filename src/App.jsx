@@ -80,7 +80,7 @@ function App() {
 
         <div>
           <TheTitle text="Add Expense" />
-          <AddExpense AddNewExpense={AddNewExpense} />
+          <AddExpense AddNewExpense={AddNewExpense} remaining={remaining} />
         </div>
       </div>
     </>

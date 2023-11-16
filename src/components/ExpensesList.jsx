@@ -1,10 +1,12 @@
 import { MdDelete } from "react-icons/md";
+import MessageError from "./MessageError";
 const ExpensesList = ({ expenses,deleteExpense }) => {
   return (
     <div>
       {expenses.length == 0 && (
-            <div className="text-center text-red-500">There is no result</div>
+           <MessageError error={'There is no result'} />
           )}
+          
       <ul className="flex flex-col gap-1">
         { expenses && expenses.map((expense) => (
           <li key={expense.id} className='flex justify-between items-center bg-red-100 p-2 rounded-sm'>
