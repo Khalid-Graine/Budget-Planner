@@ -4,30 +4,41 @@ import ExpensesList from "./components/ExpensesList";
 import AddExpense from "./components/AddExpense";
 import { useState } from "react";
 function App() {
-  const [Budget,SetBudget] = useState({
+  const [Budget, SetBudget] = useState({
     Budget: "2000",
     Remaining: "1510",
     Spent: "490",
   });
-  const [Expenses,setExpense] = useState([
+  const [Expenses, setExpense] = useState([
     {
-      Name: "car",
-      Cost: 10,
+      id: 0,
+      name: "car",
+      cost: 10,
     },
     {
-      Name: "food",
-      Cost: 145,
-    }
+      id: 1,
+      name: "food",
+      cost: 145,
+    },
   ]);
 
-
+  const AddNewExpense = (name, cost) => {
+    setExpense((prev) => [
+      ...prev,
+      {
+        id: Expenses.length,
+        name: name,
+        cost: cost,
+      },
+    ]);
+  };
 
   return (
     <>
-      <div className="bg-gray-200 h-screen w-full p-2">
+      <div className="bg-gray-200 h-screen w-full p-4">
         <div>
           <TheTitle text="My Budget Planner" />
-          <Dashboard  info={Budget} />
+          <Dashboard info={Budget} />
         </div>
 
         <div>
@@ -40,7 +51,7 @@ function App() {
 
         <div>
           <TheTitle text="Add Expense" />
-          <AddExpense />
+          <AddExpense AddNewExpense={AddNewExpense} />
         </div>
       </div>
     </>

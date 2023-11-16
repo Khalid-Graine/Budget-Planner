@@ -3,10 +3,10 @@ const ExpensesList = ({ expenses }) => {
     <div>
       <ul className="flex flex-col gap-1">
         {expenses.map((expense) => (
-          <li key={expense.Name} className='flex justify-between bg-red-300 p-2 rounded-sm'>
-            <p>{expense.Name}</p>
+          <li key={expense.id} className='flex justify-between bg-red-300 p-2 rounded-sm'>
+            <p>{expense.name}</p>
             <div className='flex gap-2'>
-              <p>{expense.Cost}$</p>
+              <p>{expense.cost}$</p>
               <button>X</button>
             </div>
           </li>
