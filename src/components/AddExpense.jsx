@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const AddExpense = ({AddNewExpense}) => {
   const [name, setName] = useState('');
-  const [cost, setCost] = useState();
+  const [cost, setCost] = useState('');
   const [error,setError] = useState(null)
 
   const handleSubmit = (e) => {
@@ -29,7 +29,7 @@ const AddExpense = ({AddNewExpense}) => {
           <div className="text-red-400">{error}</div>
           <form onSubmit={(e) => handleSubmit(e)} className='flex flex-col gap-2'>
        <div>
-       <label >name</label>
+       <label >Name</label>
        <pre />
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} className="border w-full"/>
        </div>
@@ -37,7 +37,7 @@ const AddExpense = ({AddNewExpense}) => {
        <div>
        <label >Cost</label>  <pre />
         <input 
-        type="text" 
+        type="number"
         value={cost}
         onChange={(e) => setCost(e.target.value)}
         className="border w-full"
