@@ -1,23 +1,19 @@
-const ExpensesList = () => {
+const ExpensesList = ({ expenses }) => {
   return (
     <div>
-         <ul>
-        <li className='flex justify-between'>
-          <p>car</p>
-          <div className='flex gap-2'>
-            <p>10$</p>
-            <button>X</button>
-          </div>
-        </li>
-        <li className='flex justify-between'>
-          <p>house</p>
-          <div className='flex gap-2'>
-            <p>10$</p>
-            <button>X</button>
-          </div>
-        </li>
-       </ul>
+      <ul className="flex flex-col gap-1">
+        {expenses.map((expense) => (
+          <li key={expense.Name} className='flex justify-between bg-red-300 p-2 rounded-sm'>
+            <p>{expense.Name}</p>
+            <div className='flex gap-2'>
+              <p>{expense.Cost}$</p>
+              <button>X</button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
-}
-export  default ExpensesList;
+  );
+};
+
+export default ExpensesList;

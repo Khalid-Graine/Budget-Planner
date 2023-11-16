@@ -9,10 +9,16 @@ function App() {
     Remaining: "1510",
     Spent: "490",
   });
-  const [Expenses,setExpense] = useState({
-    Name: "car",
-    Cost: 10,
-  });
+  const [Expenses,setExpense] = useState([
+    {
+      Name: "car",
+      Cost: 10,
+    },
+    {
+      Name: "food",
+      Cost: 145,
+    }
+  ]);
 
 
 
@@ -29,7 +35,7 @@ function App() {
           <form action="">
             <input type="text" />
           </form>
-          <ExpensesList />
+          <ExpensesList expenses={Expenses} />
         </div>
 
         <div>
