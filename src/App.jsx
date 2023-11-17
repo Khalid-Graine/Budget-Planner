@@ -3,10 +3,11 @@ import Dashboard from "./components/Dashboard";
 import ExpensesList from "./components/ExpensesList";
 import AddExpense from "./components/AddExpense";
 import SearchInput from "./components/searchInput";
+import EditBudget from "./components/EditBudget";
 
 import { useEffect, useState } from "react";
 function App() {
-  const [budget, SetBudget] = useState(30);
+  const [budget, setBudget] = useState(30);
   const [spent, setSpent] = useState(0);
   const [remaining, setRemaining] = useState(budget - spent);
   const [searchWord, setSearchWord] = useState("");
@@ -60,12 +61,14 @@ function App() {
     const NewArr = Expenses.filter((ex) => ex.id !== id);
     setExpense(NewArr);
   };
+
   return (
     <>
       <div className="p-4">
         <div>
           <TheTitle text="My Budget Planner" />
-          <Dashboard budget={budget} remaining={remaining} spent={spent} />
+          <EditBudget budget={budget} setBudget={setBudget}  />
+          <Dashboard budget={budget} remaining={remaining} spent={spent}  />
         </div>
 
         <div>
@@ -82,6 +85,8 @@ function App() {
           <TheTitle text="Add Expense" />
           <AddExpense AddNewExpense={AddNewExpense} remaining={remaining} />
         </div>
+
+       
       </div>
     </>
   );
