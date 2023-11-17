@@ -14,11 +14,7 @@ function App() {
   const [spent, setSpent] = useState(0);
   const [remaining, setRemaining] = useState(budget - spent);
   const [searchWord, setSearchWord] = useState("");
-
-
-  const [Expenses, setExpense] = useState([
-    
-  ]);
+  const [Expenses, setExpense] = useState([]);
 
 
 
@@ -28,7 +24,6 @@ function App() {
 
   useEffect(() => {
     const newArr = Expenses.filter((e) => e.name.includes(searchWord));
-
     if (newArr.length == 0) {
       setFilteredExpenses([])
     } else {
@@ -67,7 +62,7 @@ function App() {
         <div>
           <TheTitle text="My Budget Planner" />
           <EditBudget budget={budget} setBudget={setBudget}  />
-          <Dashboard budget={budget} remaining={remaining} spent={spent}  />
+          <Dashboard  remaining={remaining} spent={spent}  />
         </div>
 
         <div>
