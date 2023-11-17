@@ -38,7 +38,7 @@ const AddExpense = ({ AddNewExpense, remaining }) => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="border w-full"
+            className="x-input"
           />
         </div>
 
@@ -48,7 +48,7 @@ const AddExpense = ({ AddNewExpense, remaining }) => {
             type="number"
             value={cost}
             onChange={(e) => setCost(e.target.value)}
-            className="border w-full"
+            className="x-input"
           />
         </div>
         

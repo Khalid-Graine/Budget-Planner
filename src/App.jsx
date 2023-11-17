@@ -17,7 +17,7 @@ function App() {
     {
       id: 0,
       name: "car",
-      cost: 5,
+      cost: 15,
     },
     {
       id: 1,
@@ -64,7 +64,7 @@ function App() {
 
   return (
     <>
-      <div className="p-4">
+      <div className="p-1  border md:my-2 md:w-6/12 mx-auto rounded-sm">
         <div>
           <TheTitle text="My Budget Planner" />
           <EditBudget budget={budget} setBudget={setBudget}  />
@@ -78,6 +78,7 @@ function App() {
           <ExpensesList
             expenses={filteredExpenses}
             deleteExpense={deleteExpense}
+            budget={budget}
           />
         </div>
 
