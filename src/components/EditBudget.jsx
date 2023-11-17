@@ -10,12 +10,13 @@ const EditBudget = ({ budget, setBudget }) => {
 
   return (
     <div>
-      <form className="my-2">
+      <form className="my-2 flex gap-1 bg-blue-100 p-1">
+        <label className="w-full">budget:</label>
         <input
           type="text"
           onChange={(e) => handleInputChange(e)}
           value={budget}
-          className="x-input"
+          className="w-20 text-center border"
           onKeyDown={(e) => handleInputChange(e)}
         />
       </form>
