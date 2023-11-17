@@ -7,6 +7,9 @@ import EditBudget from "./components/EditBudget";
 
 import { useEffect, useState } from "react";
 function App() {
+
+  
+
   const [budget, setBudget] = useState(30);
   const [spent, setSpent] = useState(0);
   const [remaining, setRemaining] = useState(budget - spent);
@@ -14,17 +17,13 @@ function App() {
 
 
   const [Expenses, setExpense] = useState([
-    {
-      id: 0,
-      name: "car",
-      cost: 15,
-    },
-    {
-      id: 1,
-      name: "food",
-      cost: 5,
-    },
+    
   ]);
+
+
+
+
+
   const [filteredExpenses, setFilteredExpenses] = useState([]);
 
   useEffect(() => {
@@ -45,7 +44,8 @@ function App() {
 
   useEffect(() => {
     setRemaining(budget - spent);
-  }, [spent]);
+  }, [spent,budget]);
+
   const AddNewExpense = (name, cost) => {
     setExpense((prev) => [
       ...prev,
@@ -58,8 +58,7 @@ function App() {
   };
 
   const deleteExpense = (id) => {
-    const NewArr = Expenses.filter((ex) => ex.id !== id);
-    setExpense(NewArr);
+    setExpense(Expenses.filter((ex) => ex.id !== id));
   };
 
   return (
