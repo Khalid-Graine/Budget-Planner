@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 
-
+body {
+    font-family: system-ui;
+}
 .x-input {
     @apply border w-full py-1 pl-1 rounded-sm
 }
