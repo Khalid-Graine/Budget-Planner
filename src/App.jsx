@@ -1,9 +1,12 @@
-import TheTitle from "./components/TheTitle";
-import Dashboard from "./components/Dashboard";
-import ExpensesList from "./components/ExpensesList";
-import AddExpense from "./components/AddExpense";
-import SearchInput from "./components/searchInput";
-import EditBudget from "./components/EditBudget";
+import {
+  TheTitle,
+  Dashboard,
+  ExpensesList,
+  AddExpense,
+  SearchInput,
+  EditBudget
+} from "./components";
+
 
 import { useEffect, useState } from "react";
 function App() {
