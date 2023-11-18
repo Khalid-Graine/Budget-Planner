@@ -4,31 +4,23 @@ import {
   ExpensesList,
   AddExpense,
   SearchInput,
-  EditBudget
+  EditBudget,
 } from "./components";
-
 
 import { useEffect, useState } from "react";
 function App() {
-
-  
-
   const [budget, setBudget] = useState(30);
   const [spent, setSpent] = useState(0);
   const [remaining, setRemaining] = useState(budget - spent);
   const [searchWord, setSearchWord] = useState("");
   const [Expenses, setExpense] = useState([]);
 
-
-
-
-
   const [filteredExpenses, setFilteredExpenses] = useState([]);
 
   useEffect(() => {
     const newArr = Expenses.filter((e) => e.name.includes(searchWord));
     if (newArr.length == 0) {
-      setFilteredExpenses([])
+      setFilteredExpenses([]);
     } else {
       setFilteredExpenses(newArr);
     }
@@ -42,7 +34,7 @@ function App() {
 
   useEffect(() => {
     setRemaining(budget - spent);
-  }, [spent,budget]);
+  }, [spent, budget]);
 
   const AddNewExpense = (name, cost) => {
     setExpense((prev) => [
@@ -64,27 +56,24 @@ function App() {
       <div className="p-1  border md:my-2 md:w-6/12 mx-auto rounded-sm">
         <div>
           <TheTitle text="My Budget Planner" />
-          <EditBudget budget={budget} setBudget={setBudget}  />
-          <Dashboard  remaining={remaining} spent={spent}  />
+          <EditBudget {...{ budget, setBudget }} />
+          <Dashboard {...{ remaining, spent }} />
         </div>
 
         <div>
           <TheTitle text="Expenses" />
-          <SearchInput searchWord={searchWord} setSearchWord={setSearchWord} />
+          <SearchInput {...{ searchWord, setSearchWord }} />
 
           <ExpensesList
             expenses={filteredExpenses}
-            deleteExpense={deleteExpense}
-            budget={budget}
+            {...{ deleteExpense, budget }}
           />
         </div>
 
         <div>
           <TheTitle text="Add Expense" />
-          <AddExpense AddNewExpense={AddNewExpense} remaining={remaining} />
+          <AddExpense {...{ remaining, AddNewExpense }} />
         </div>
-
-       
       </div>
     </>
   );
